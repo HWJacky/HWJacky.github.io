@@ -1,0 +1,2 @@
+#block {position: relative; margin: 50px auto; width: 700px; height: 400px;  background: url(../../img/demo/nuture0.jpg);}
+#block span { position: absolute; top: 0; left: 0; width: 100px; height: 100px; background: url(../../img/demo/nuture0.jpg);}

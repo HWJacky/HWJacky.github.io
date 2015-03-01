@@ -1,0 +1,4 @@
+.demo div { position: relative; margin: 200px auto; width: 200px; height: 200px; border: 1px solid #ccc; overflow: hidden;}
+.demo p { position: absolute; left: 999px; top: 999px; width: 200px; height: 200px; line-height: 200px; background: #0ac; opacity: 0.95; text-align: center; cursor: pointer;}
+.demo span { color: #fff;  font-size: 20px; }
+.demo li { float: left; position: relative; margin: 20px; width: 200px; height: 200px; border: 1px solid #ccc; overflow: hidden;}

@@ -1,0 +1,4 @@
+.demo div {float:left; margin: 40px; width: 310px; height: 310px; overflow: hidden;}
+#small { position: relative;}
+#big { display: none;}
+#small span { display: none; position: absolute; top: 0; left: 0; width: 100px; height: 100px; opacity: 0.5 ; background: yellow;}

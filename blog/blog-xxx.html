@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/demo.css">
+	<link rel="stylesheet" href="../css/demo/block.css">
+	<script src="../js/common.js"></script>
+	<script src="../js/demo/block.js"></script>
+
+</head>
+<body>
+	<div class="skillbar">
+		<p class="skillnav">
+		<i class="refresh iconfont" id="refresh">&#xe602;</i>
+			<a href="javascript:;">JavaScript</a>
+			<a href="javascript:;">CSS3</a>
+			<a href="javascript:;">数据交互</a>
+			<a href="javascript:;">JQuery</a>
+			<a href="javascript:;">分享</a>
+		</p>
+	</div>
+	<div class="content">
+	一、前言
+	对于一门技术而言，要想达到真正的高度，需要形成自己关于这门技术的世界观。我在研究css上花费的功夫相对多些，但还不至于形成css世界观的程度，css是如此精深的一门学问，不仅仅是一门技术，更融入了美学，哲学的东西。当然，对于css，我是有自己的一套约束准则的，请允许我称之为“鑫三无准则”，即无浮动，无宽度，无图片。这是为了css的模块化以及可扩展性需要尽量遵守的准则。然而，现有国内各类大大小小的网站，做到这一点的有多少呢，很少，而且各个网站差距很大。即使国内前列的互联网公司网站的css代码也是有明显的档次之分。
+	如果要学css，不建议看淘宝网，其css估计维护改动颇多，已是千疮百孔，hack巨多。人人网、新浪博客可以说算是css不错的网站，一个一个分析其css用意，会学到很多东西的。而谷歌可以说是css最精深的网站了，其网站css技术含量真是很高，新浪，人人，腾讯之类与其不在一个档次。更准确的说是与谷歌网站相比，新浪之类的网站没有一个很贯彻的css理念，也可以称为css的世界观。谷歌网站将css的可维护性，css的前瞻性发挥到极致，如何极致法？好，这里我就拿Google（谷歌）上的看似普通的按钮阐述谷歌网站css的技术强在哪里，为何说其css的前瞻性发挥到了极致。本文后半部分根据总结的一些相关启示，重新付诸一些优化方面的实践，将本文主题意义推到可实践性的高度。
+	二、目录
+	1. 关于Google圆角高光高宽自适应按钮
+	①如何用高效的css代码实现
+	②此按钮的优点在何处
+	③给我们的启示
+	2. 关于虾米网全选等圆角阴影宽度自适应按钮
+	①原按钮分析
+	②如何用纯粹的css实现
+	③css实现的按钮的优点
+	三、内容
+	1. 关于Google圆角高光高宽自适应按钮
+	首先，来看一下这个所谓的其貌不扬的按钮是个什么样子：
+	谷歌gmail邮箱中出现的圆角高宽自适应按钮
+	谷歌gmail邮箱中出现的圆角高宽自适应按钮
+	网上有句话很流行，叫做“我很丑，但是我很温柔！”这句话的境界与这个其貌不扬的按钮可谓一致，乍看这个按钮，很普通，第一反应是制作很简单嘛——打开photoshop，拉个2像素圆角的圆角矩形，渐变填充即可。但是，用firebug一看此按钮的“内心深处”，额！惊住了，全是css代码构成的，没有一丁点的图片，从圆角，到高光渐变全是css实现。更难能可贵的是这个按钮不仅宽度自适应，高度也自适应，而且可以与文字，图片混排。但是我不建议您用firebug去看其按钮实现，原因在于这个按钮已经融入在整个页面的体系中，其HTML以及css代码是相当复杂的，或许其中还牵涉到JavaScript——按钮是全div标签实现，其鼠标经过样式必定借助于JavaScript实现（考虑到IE6），而且实际上的层级无需firebug看到的那么复杂。
+	这里我将提供经过自己反复试验，可以说是相当精简高效的css代码（方法多种，这里仅提供我认为最好的方法）实现上图所示的按钮效果，并针对css样式提供一系列具体的分析，所涉及到的一些分析都是网上很少有的。
+	①如何用高效的css代码实现
+	关于此按钮的实现，您可以狠狠地单击这里：demo实例页面，里面有按钮效果展示，以及css代码的展示。
+	首先，看一下在各个浏览器下的最终效果：
+	仿Google圆角高宽自适应按钮在各个浏览器下的表现
+	这里是实现此效果的css代码：
+	.g_a{display:inline-block; border-width:1px 0; border-color:#bbbbbb; border-style:solid; vertical-align:middle;}
+	.g_b{float:left; background:#e3e3e3; border-width:0 1px; border-color:#bbbbbb; border-style:solid; margin:0 -1px; position:relative;}
+	.g_c{display:block; line-height:0.6em; background:#f9f9f9; border-bottom:2px solid #eeeeee;}
+	.g_d{display:block; padding:0.1em 0.6em; margin-top:-0.6em; cursor:pointer;}
+	HTML代码如下：
+	<a href="#nogo" class="g_a">
+	     <span class="g_b">
+	         <span class="g_c">&nbsp;</span>
+	         <span class="g_d">圆角按钮</span>
+	     </span>
+	</a>
+	css及HTML代码分析：
+	►原来Google的按钮是使用div实现的，如果要想要让div标签在各个浏览器下实现图文混排，以我现在经验来看，势必用到hack，或多一行css。所以这里我使用inline属性的标签a，span实现效果。inline属性的标签在inline-block属性下能实现类似于inline-block的效果，与支持inline-block的浏览器一起，就可以无需hack实现按钮与图文混排的效果（inline或inline-block属性的元素能与文字同行排列）。
+	►最外层标签（a标签）css中的vertical-align:middle属性是可选样式，这里添加主要是为了和文字在一起时居中显示，更舒适的布局。
+	►第二层标签（span标签）样式中的position:relative属性是为了解决IE6下margin负值部分不可见的bug，浮动是为了使IE6、IE7下向左的margin负1像素起作用。
+	►第三层标签含有两个并列的span标签，它们display属性设置为block是为了自动换行排列且宽度100%显示，当然，您千万不能设置width:100%，否则IE6下会有麻烦的。其中第一个span标签的line-height是为了设置高度，千万不能直接使用height撑开高度，原因在于在IE下，height会使标签有haslayout属性，宽度会撑开，满屏显示的。
+	②此按钮的优点在何处
+
+
+	一、前言
+	对于一门技术而言，要想达到真正的高度，需要形成自己关于这门技术的世界观。我在研究css上花费的功夫相对多些，但还不至于形成css世界观的程度，css是如此精深的一门学问，不仅仅是一门技术，更融入了美学，哲学的东西。当然，对于css，我是有自己的一套约束准则的，请允许我称之为“鑫三无准则”，即无浮动，无宽度，无图片。这是为了css的模块化以及可扩展性需要尽量遵守的准则。然而，现有国内各类大大小小的网站，做到这一点的有多少呢，很少，而且各个网站差距很大。即使国内前列的互联网公司网站的css代码也是有明显的档次之分。
+	如果要学css，不建议看淘宝网，其css估计维护改动颇多，已是千疮百孔，hack巨多。人人网、新浪博客可以说算是css不错的网站，一个一个分析其css用意，会学到很多东西的。而谷歌可以说是css最精深的网站了，其网站css技术含量真是很高，新浪，人人，腾讯之类与其不在一个档次。更准确的说是与谷歌网站相比，新浪之类的网站没有一个很贯彻的css理念，也可以称为css的世界观。谷歌网站将css的可维护性，css的前瞻性发挥到极致，如何极致法？好，这里我就拿Google（谷歌）上的看似普通的按钮阐述谷歌网站css的技术强在哪里，为何说其css的前瞻性发挥到了极致。本文后半部分根据总结的一些相关启示，重新付诸一些优化方面的实践，将本文主题意义推到可实践性的高度。
+	二、目录
+	1. 关于Google圆角高光高宽自适应按钮
+	①如何用高效的css代码实现
+	②此按钮的优点在何处
+	③给我们的启示
+	2. 关于虾米网全选等圆角阴影宽度自适应按钮
+	①原按钮分析
+	②如何用纯粹的css实现
+	③css实现的按钮的优点
+	三、内容
+	1. 关于Google圆角高光高宽自适应按钮
+	首先，来看一下这个所谓的其貌不扬的按钮是个什么样子：
+	谷歌gmail邮箱中出现的圆角高宽自适应按钮
+	谷歌gmail邮箱中出现的圆角高宽自适应按钮
+	网上有句话很流行，叫做“我很丑，但是我很温柔！”这句话的境界与这个其貌不扬的按钮可谓一致，乍看这个按钮，很普通，第一反应是制作很简单嘛——打开photoshop，拉个2像素圆角的圆角矩形，渐变填充即可。但是，用firebug一看此按钮的“内心深处”，额！惊住了，全是css代码构成的，没有一丁点的图片，从圆角，到高光渐变全是css实现。更难能可贵的是这个按钮不仅宽度自适应，高度也自适应，而且可以与文字，图片混排。但是我不建议您用firebug去看其按钮实现，原因在于这个按钮已经融入在整个页面的体系中，其HTML以及css代码是相当复杂的，或许其中还牵涉到JavaScript——按钮是全div标签实现，其鼠标经过样式必定借助于JavaScript实现（考虑到IE6），而且实际上的层级无需firebug看到的那么复杂。
+	这里我将提供经过自己反复试验，可以说是相当精简高效的css代码（方法多种，这里仅提供我认为最好的方法）实现上图所示的按钮效果，并针对css样式提供一系列具体的分析，所涉及到的一些分析都是网上很少有的。
+	①如何用高效的css代码实现
+	关于此按钮的实现，您可以狠狠地单击这里：demo实例页面，里面有按钮效果展示，以及css代码的展示。
+	首先，看一下在各个浏览器下的最终效果：
+	仿Google圆角高宽自适应按钮在各个浏览器下的表现
+	这里是实现此效果的css代码：
+	.g_a{display:inline-block; border-width:1px 0; border-color:#bbbbbb; border-style:solid; vertical-align:middle;}
+	.g_b{float:left; background:#e3e3e3; border-width:0 1px; border-color:#bbbbbb; border-style:solid; margin:0 -1px; position:relative;}
+	.g_c{display:block; line-height:0.6em; background:#f9f9f9; border-bottom:2px solid #eeeeee;}
+	.g_d{display:block; padding:0.1em 0.6em; margin-top:-0.6em; cursor:pointer;}
+	HTML代码如下：
+	<a href="#nogo" class="g_a">
+	     <span class="g_b">
+	         <span class="g_c">&nbsp;</span>
+	         <span class="g_d">圆角按钮</span>
+	     </span>
+	</a>
+	css及HTML代码分析：
+	►原来Google的按钮是使用div实现的，如果要想要让div标签在各个浏览器下实现图文混排，以我现在经验来看，势必用到hack，或多一行css。所以这里我使用inline属性的标签a，span实现效果。inline属性的标签在inline-block属性下能实现类似于inline-block的效果，与支持inline-block的浏览器一起，就可以无需hack实现按钮与图文混排的效果（inline或inline-block属性的元素能与文字同行排列）。
+	►最外层标签（a标签）css中的vertical-align:middle属性是可选样式，这里添加主要是为了和文字在一起时居中显示，更舒适的布局。
+	►第二层标签（span标签）样式中的position:relative属性是为了解决IE6下margin负值部分不可见的bug，浮动是为了使IE6、IE7下向左的margin负1像素起作用。
+	►第三层标签含有两个并列的span标签，它们display属性设置为block是为了自动换行排列且宽度100%显示，当然，您千万不能设置width:100%，否则IE6下会有麻烦的。其中第一个span标签的line-height是为了设置高度，千万不能直接使用height撑开高度，原因在于在IE下，height会使标签有haslayout属性，宽度会撑开，满屏显示的。
+	②此按钮的优点在何处
+
+	</div>
+</body>
+</html>

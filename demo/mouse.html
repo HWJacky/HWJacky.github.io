@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	.demo { position: relative; width: 1000px; margin:0 auto;}
+	.demo span { line-height: 30px; font-size: 20px;}
+	.div { height: 200px;}
+	#btns { position: fixed; top: 50px;  left: 50%; margin-left: -500px; width: 1000px; text-align: center;}
+	#divs {  font-size: 16px;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oTex = document.getElementById('text');
+
+		document.onmousemove = function (ev){
+			var oEvent = ev || event;
+			oTex.innerHTML = 'clientX:'+ oEvent.clientX + '<br>clientY:' + oEvent.clientY + '<br>pageX:'+ oEvent.pageX + '<br>pageY:' +oEvent.pageY;
+		};
+
+		var aDiv = document.getElementById('divs').children;
+		for(var i = 0; i < aDiv.length; i++){
+			aDiv[i].innerHTML = 'Top:' + aDiv[i].offsetTop;
+			aDiv[i].style.background = 'rgb(0,'+ (255 - i*50) +',200)';
+		}
+	};
+	</script>
+</head>
+<body>
+	<div class="demo">
+		<p id="btns">
+			<span id="text">点击按钮出现对应属性值</span>
+		</p>
+		<div id="divs">
+			<div class="div"></div>
+			<div class="div"></div>
+			<div class="div"></div>
+			<div class="div"></div>
+			<div class="div"></div>
+			<div class="div"></div>
+		</div>
+	</div>
+</body>
+</html>

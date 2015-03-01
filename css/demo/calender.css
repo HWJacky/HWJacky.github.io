@@ -1,0 +1,11 @@
+@charset "utf-8";
+.calender { display:none; position:absolute; top:0; left:0; width:210px; border:1px solid #000; background:#fff; }
+.calender .now { display:block; height:30px; line-height:30px; text-align:center; font-weight:bold; }
+.calender ol, .calender ul { overflow:hidden; }
+.calender li { width:30px; height:30px; line-height:30px; float:left; list-style:none; text-align:center; }
+.calender .week, .calender .today { color:#f40; }
+.calender .today { font-size:12px; }
+.calender .past { color:#ccc; }
+.calender .prev, .calender .next { position:absolute; top:0; height:30px; line-height:30px; text-decoration:none; }
+.calender .prev { left:10px; }
+.calender .next { right:10px; }

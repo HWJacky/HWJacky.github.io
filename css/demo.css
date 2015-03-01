@@ -1,0 +1,103 @@
+/*------------------font-face---------------------*/
+
+
+@font-face {font-family: 'iconfont';
+    src: url('../font/iconfont.eot'); /* IE9*/
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.down{
+	padding-right: 10px;
+}
+.refresh{
+	position: absolute;
+	top: 0;
+	left: 30px;
+	color: #000;
+	padding-right: 20px;
+	font-size: 30px;
+	cursor: pointer;
+}
+/*------------------demo---------------------*/
+
+body{
+	background: url(../img/background2.jpg);
+}
+.skillbar,.blogbar{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background: rgba(0,0,0,0.2)
+}
+.skillnav, .blognav {
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+	padding-left: 100px;
+}
+.skillnav a, .blognav a{
+	display: inline-block;
+	position: relative;
+	margin-top: 16px;
+	margin-left: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 20px;
+	line-height: 20px;
+	background: #fff;
+	font-size: 14px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.skillnav a:before, .blognav a:before{
+	display: block;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -20px;
+	border: 10px dotted transparent;
+	border-color: transparent #fff transparent transparent;
+	border-style: dotted solid dotted dotted;
+}
+.skillnav a:after, .blognav a:after{
+	display: block;
+	content: "";
+	position: absolute;
+	top: 8px;
+	left: -2px;
+	border: 2px dotted #ccc;
+	border-radius: 50%;
+}
+.skillbox, .blogbox{
+	margin: 0 auto;
+	height: 480px;
+	width: 1000px;
+}
+.skillbox li, .blogbox li{
+	float: left;
+	margin-top: 25px;
+	margin-left: 25px;
+	height: 200px;
+	width: 300px;
+	background: #0ac;
+}
+
+.content{
+	margin: 0 auto;
+	width: 1000px;
+}
+.explain{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+}
