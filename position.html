@@ -29,18 +29,22 @@
 
 ###1.clientWidth和clientHeight
 表示内容区域的高度和宽度，包括`padding`大小，但是不包括边框和滚动条
+
 兼容性: 全
 
 ###2.clientLeft和clientTop
 表示内容区域的左上角相对于整个元素左上角的位置（包括边框）。
+
 兼容性:全
 
 ###3.offsetWidth和offsetHeight
 整个元素的尺寸（包括边框)。
+
 兼容性: 全
 
 ###4.offsetLeft和offsetTop
 表示相对于最近的祖先定位元素（CSS `position` 属性被设置为 `relative`、`absolute` 或 `fixed` 的元素）的偏移值。
+
 兼容性: 全
 
 [client和offset demo](http://www.baidu.com/)
@@ -49,8 +53,10 @@
 
 ###5.scrollLeft和scrollTop
 表示元素滚动的像素大小。可读可写。
+
 兼容性: 全
 但要注意，对于页面滚动高度来说，chorme监听的是`body`的滚动高度，非chrome游览器监听的是`html`的高度。
+
 兼容写法为：
 ~~~~{javascript}
 document.body.scrollTop || document.documentElement.srollTop
@@ -65,10 +71,12 @@ document.body.scrollTop || document.documentElement.srollTop
 
 7.鼠标clientX,clientY
 相对于window，为鼠标相对于window的偏移
+
 兼容性：全
 
 8.鼠标pageX,pageY
 鼠标相对于document的位移
+
 兼容性: IE9+
 
 [鼠标位置 demo](http://www.baidu.com/)
@@ -80,23 +88,27 @@ document.body.scrollTop || document.documentElement.srollTop
 
 <h3 id="1clientwidthclientheight">1.clientWidth和clientHeight</h3>
 
-<p>表示内容区域的高度和宽度，包括<code>padding</code>大小，但是不包括边框和滚动条
-兼容性: 全</p>
+<p>表示内容区域的高度和宽度，包括<code>padding</code>大小，但是不包括边框和滚动条</p>
+
+<p>兼容性: 全</p>
 
 <h3 id="2clientleftclienttop">2.clientLeft和clientTop</h3>
 
-<p>表示内容区域的左上角相对于整个元素左上角的位置（包括边框）。
-兼容性:全</p>
+<p>表示内容区域的左上角相对于整个元素左上角的位置（包括边框）。</p>
+
+<p>兼容性:全</p>
 
 <h3 id="3offsetwidthoffsetheight">3.offsetWidth和offsetHeight</h3>
 
-<p>整个元素的尺寸（包括边框)。
-兼容性: 全</p>
+<p>整个元素的尺寸（包括边框)。</p>
+
+<p>兼容性: 全</p>
 
 <h3 id="4offsetleftoffsettop">4.offsetLeft和offsetTop</h3>
 
-<p>表示相对于最近的祖先定位元素（CSS <code>position</code> 属性被设置为 <code>relative</code>、<code>absolute</code> 或 <code>fixed</code> 的元素）的偏移值。
-兼容性: 全</p>
+<p>表示相对于最近的祖先定位元素（CSS <code>position</code> 属性被设置为 <code>relative</code>、<code>absolute</code> 或 <code>fixed</code> 的元素）的偏移值。</p>
+
+<p>兼容性: 全</p>
 
 <p><a href="http://www.baidu.com/">client和offset demo</a></p>
 
@@ -104,10 +116,12 @@ document.body.scrollTop || document.documentElement.srollTop
 
 <h3 id="5scrollleftscrolltop">5.scrollLeft和scrollTop</h3>
 
-<p>表示元素滚动的像素大小。可读可写。
-兼容性: 全
-但要注意，对于页面滚动高度来说，chorme监听的是<code>body</code>的滚动高度，非chrome游览器监听的是<code>html</code>的高度。
-兼容写法为：</p>
+<p>表示元素滚动的像素大小。可读可写。</p>
+
+<p>兼容性: 全
+但要注意，对于页面滚动高度来说，chorme监听的是<code>body</code>的滚动高度，非chrome游览器监听的是<code>html</code>的高度。</p>
+
+<p>兼容写法为：</p>
 
 <pre class=" language-javascript"><code class=" language-javascript">document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollTop <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>srollTop
 </code></pre>
@@ -121,12 +135,14 @@ document.body.scrollTop || document.documentElement.srollTop
 <p><img src="http://HWJacky.github.io/img/scroll.png" alt="alt scroll" title=""></p>
 
 <p>7.鼠标clientX,clientY
-相对于window，为鼠标相对于window的偏移
-兼容性：全</p>
+相对于window，为鼠标相对于window的偏移</p>
+
+<p>兼容性：全</p>
 
 <p>8.鼠标pageX,pageY
-鼠标相对于document的位移
-兼容性: IE9+</p>
+鼠标相对于document的位移</p>
+
+<p>兼容性: IE9+</p>
 
 <p><a href="http://www.baidu.com/">鼠标位置 demo</a></p>
 <!-- content end -->
